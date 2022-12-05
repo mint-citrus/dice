@@ -3,7 +3,17 @@
   (force-output *query-io*)
   (read-line *query-io*))
 
+(defun random-pick (x)
+  (nth (random (length x)) x))
+
 (defun main ()
-  ;; TODO:
-  ;; user input -> parse & list -> random choice then output
-  )
+  (setq input nil)
+  (format t "Input Options (q to end)")
+  (loop
+    (let ((tmp  (prompt ">")))
+      (if (string= tmp "q")
+	      (return)
+	      (setq input (append input (list tmp))))))
+  (write (format t (random-pick input))))
+
+(main)
