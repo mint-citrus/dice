@@ -14,6 +14,6 @@
       (if (string= tmp "q")
 	      (return)
 	      (setq input (append input (list tmp))))))
-  (write (format t (random-pick input))))
+  (format t (random-pick input)))
 
 (main)
